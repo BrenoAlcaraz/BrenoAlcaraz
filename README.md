@@ -2,7 +2,7 @@
 
 **`Desenvolvedor Back-end`**
 
-Me chamo Breno, tenho 22 anos e sou natural do Rio de Janeiro. Atualmente, estou cursando Ciência de Dados e IA no IBMEC. No momento estou trabalhando com automação de processos. 
+Me chamo Breno, tenho 22 anos e sou natural do Rio de Janeiro. Curso Ciência de Dados e IA no IBMEC. No momento estou trabalhando com automação de processos. 
 
 <p align="left">
     <a href="https://github.com/BrenoAlcaraz?tab=followers">
