@@ -123,6 +123,10 @@ I'm especially excited about global teams, graduate programs, and environments w
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Breno_França_Alcaraz-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/breno-fran%C3%A7a-alcaraz-ferreira-363a85288/)
 
+[![Instagram](https://img.shields.io/badge/Instagram-@brenofrancaa-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/brenofrancaa/)
+
+[![TikTok](https://img.shields.io/badge/TikTok-@brenofrancaa-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@brenofrancaa)
+
 [![GitHub](https://img.shields.io/badge/GitHub-BrenoAlcaraz-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/BrenoAlcaraz)
 
 ---
