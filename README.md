@@ -121,6 +121,8 @@ I'm especially excited about global teams, graduate programs, and environments w
 
 ## 🤝 Let's connect
 
+[![Portfolio](https://img.shields.io/badge/Portfolio-brenoalcaraz.github.io-1F3B57?style=for-the-badge&logo=githubpages&logoColor=white)](https://brenoalcaraz.github.io)
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Breno_França_Alcaraz-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/breno-fran%C3%A7a-alcaraz-ferreira-363a85288/)
 
 [![Instagram](https://img.shields.io/badge/Instagram-@brenofrancaa-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/brenofrancaa/)
