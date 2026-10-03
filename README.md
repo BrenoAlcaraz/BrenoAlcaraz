@@ -127,7 +127,7 @@ I'm especially excited about global teams, graduate programs, and environments w
   <img alt="A chess knight touring my GitHub contribution graph using only legal knight moves" src="assets/knight-contributions.svg">
 </picture>
 
-<sub>A chess knight tours my real contribution graph, one legal knight move at a time. Regenerated daily by a GitHub Action.</sub>
+<sub>A chess knight hops across my real contribution graph. Regenerated daily by a GitHub Action.</sub>
 
 ---
 

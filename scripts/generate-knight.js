@@ -6,9 +6,9 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 
-import { buildBoard, hashBoard } from './lib/board.js';
+import { buildBoard } from './lib/board.js';
 import { fetchContributions } from './lib/github.js';
-import { generateKnightPath, validatePath } from './lib/knight.js';
+import { generatePath } from './lib/path.js';
 import { createSampleCalendar } from './lib/sample.js';
 import { generateSvg } from './lib/svg.js';
 
@@ -38,17 +38,13 @@ async function main() {
     : await fetchContributions(values.user, process.env.GITHUB_TOKEN);
 
   const board = buildBoard(calendar);
-  const path = generateKnightPath(board, { seed: hashBoard(board) });
-
-  // Throws on any illegal move, so no SVG is written for a broken path.
-  validatePath(board, path);
+  const path = generatePath(board);
 
   const contributionCells = board.cells.filter((c) => c.contributionCount > 0).length;
-  const visitedContributions = path.filter((c) => c.contributionCount > 0).length;
+  const visitedContributions = new Set(path.filter((c) => c.contributionCount > 0)).size;
   console.log(
     `Board ${board.width}x${board.height} (${board.cells.length} squares). ` +
-      `Knight visited ${path.length} squares, ${visitedContributions}/${contributionCells} with contributions. ` +
-      `All ${path.length - 1} moves validated.`
+      `Knight makes ${path.length - 1} jumps, landing on ${visitedContributions}/${contributionCells} contribution squares.`
   );
 
   const svgs = OUTPUTS.map(({ theme, file }) => ({ file, content: generateSvg(board, path, { theme }) }));

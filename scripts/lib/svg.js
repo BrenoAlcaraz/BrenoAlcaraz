@@ -3,14 +3,16 @@ export const THEMES = {
     levels: ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'],
     knight: '#f0f6fc',
     knightOutline: '#0d1117',
-    trail: '#f0f6fc',
+    flash: '#ffffff',
+    flashPeak: 0.35,
     text: '#7d8590',
   },
   light: {
     levels: ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'],
     knight: '#1f2328',
     knightOutline: '#ffffff',
-    trail: '#1f2328',
+    flash: '#1f2328',
+    flashPeak: 0.2,
     text: '#59636e',
   },
 };
@@ -22,12 +24,12 @@ const PAD_X = 14;
 const GRID_TOP = 30;
 const FOOTER = 28;
 
-const INTRO_MS = 700;
-const HOLD_MS = 1800;
-const FADE_MS = 700;
-const AIRBORNE = 0.7; // share of each move slot spent in the air; the rest is a short pause on the square
-const HOP_LIFT = 6;
-const HOP_SCALE = 1.18;
+const JUMP_MS = 700;
+const PAUSE_MS = 200; // rest on each square before the next jump
+const INTRO_MS = 600;
+const HOLD_MS = 1500;
+const FADE_MS = 600;
+const FLASH_MS = 900;
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -36,13 +38,10 @@ const KNIGHT_PATH =
   'M70 84C72 62 72 40 60 26L56 12L48 22C40 24 32 28 26 34C22 40 18 46 16 52C14 58 18 62 24 62' +
   'C30 62 36 58 42 56C44 62 40 72 34 84ZM26 84H74Q78 84 78 88V94H22V88Q22 84 26 84Z';
 
-export function moveDurationMs(moves) {
-  return Math.min(250, Math.max(160, Math.round(70000 / Math.max(1, moves))));
-}
-
 const cx = (x) => PAD_X + x * PITCH + CELL / 2;
 const cy = (y) => GRID_TOP + y * PITCH + CELL / 2;
-const round = (n) => Math.round(n * 10) / 10;
+// Longer hops arc higher, within a range that stays subtle.
+const liftFor = (a, b) => Math.round(Math.min(14, Math.max(7, 5 + 2 * Math.hypot(b.x - a.x, b.y - a.y))));
 
 function escapeXml(text) {
   return String(text).replace(/[<>&"']/g, (ch) => `&#${ch.charCodeAt(0)};`);
@@ -64,75 +63,58 @@ function monthLabels(board) {
 
 function buildTimeline(path) {
   const moves = path.length - 1;
-  const moveMs = moveDurationMs(moves);
-  const takeoff = (i) => INTRO_MS + i * moveMs;
-  const land = (i) => takeoff(i) + AIRBORNE * moveMs;
-  const total = INTRO_MS + moves * moveMs + HOLD_MS + FADE_MS;
+  const takeoff = (i) => INTRO_MS + i * (JUMP_MS + PAUSE_MS);
+  const land = (i) => takeoff(i) + JUMP_MS;
+  const total = INTRO_MS + moves * (JUMP_MS + PAUSE_MS) + HOLD_MS + FADE_MS;
   const pct = (t) => `${Number(((t / total) * 100).toFixed(3))}%`;
-  const visitTime = (j) => (j === 0 ? INTRO_MS : land(j - 1));
-  return { moves, moveMs, takeoff, land, total, pct, visitTime };
+  const arrival = (j) => (j === 0 ? INTRO_MS : land(j - 1));
+  return { moves, takeoff, land, total, pct, arrival };
 }
 
 function buildCss(path, theme, tl) {
-  const { moves, moveMs, takeoff, land, total, pct, visitTime } = tl;
+  const { moves, takeoff, land, total, pct, arrival } = tl;
   const pos = (c) => `{transform:translate(${cx(c.x)}px,${cy(c.y)}px)}`;
   const css = [];
   const anim = (name) => `animation:${name} ${total}ms infinite`;
 
+  // Knight fades in at the start and out after a short hold at the end.
   css.push(`.fx{${anim('fx')} linear}`);
   css.push(`@keyframes fx{0%{opacity:0}${pct(INTRO_MS)},${pct(total - FADE_MS)}{opacity:1}100%{opacity:0}}`);
 
-  // Horizontal travel between squares.
+  // Travel between squares; it holds still during each pause.
   const move = [`0%${pos(path[0])}`];
   for (let i = 0; i < moves; i++) {
     move.push(`${pct(takeoff(i))}${pos(path[i])}`, `${pct(land(i))}${pos(path[i + 1])}`);
   }
-  move.push(`100%${pos(path[path.length - 1])}`);
-  css.push(`.km{${anim('km')} ease-in-out}`, `@keyframes km{${move.join('')}}`);
+  move.push(`100%${pos(path.at(-1))}`);
+  css.push(`.km{${anim('km')} cubic-bezier(.35,0,.65,1)}`, `@keyframes km{${move.join('')}}`);
 
-  // Vertical arc + slight scale-up mid-jump.
+  // Hop: rise (ease-out), fall (ease-in), then a small squash on landing.
   if (moves > 0) {
     const ground = ['0%', '100%'];
-    const air = [];
+    const squash = [];
+    const airByLift = new Map();
     for (let i = 0; i < moves; i++) {
-      ground.push(pct(takeoff(i)), pct(land(i)));
-      air.push(pct(takeoff(i) + (AIRBORNE * moveMs) / 2));
+      ground.push(pct(takeoff(i)), pct(land(i)), pct(land(i) + PAUSE_MS));
+      squash.push(pct(land(i) + 90));
+      const lift = liftFor(path[i], path[i + 1]);
+      airByLift.set(lift, [...(airByLift.get(lift) ?? []), pct(takeoff(i) + JUMP_MS / 2)]);
     }
+    const air = [...airByLift]
+      .map(([lift, at]) => `${at.join(',')}{transform:translateY(-${lift}px) scale(1.08);animation-timing-function:ease-in}`)
+      .join('');
     css.push(
-      `.kh{${anim('kh')}}`,
+      `.kh{transform-origin:0 5px;${anim('kh')}}`,
       `@keyframes kh{${ground.join(',')}{transform:none;animation-timing-function:ease-out}` +
-        `${air.join(',')}{transform:translateY(-${HOP_LIFT}px) scale(${HOP_SCALE});animation-timing-function:ease-in}}`
+        `${squash.join(',')}{transform:scale(1.06,.9);animation-timing-function:ease-in-out}${air}}`
     );
   }
 
-  // Trail drawn in step with the knight.
-  if (moves > 0) {
-    let length = 0;
-    const cumulative = [0];
-    for (let i = 1; i < path.length; i++) {
-      length += Math.hypot((path[i].x - path[i - 1].x) * PITCH, (path[i].y - path[i - 1].y) * PITCH);
-      cumulative.push(length);
-    }
-    const dash = Math.ceil(length) + 1;
-    const offset = (n) => `{stroke-dashoffset:${round(dash - n)}}`;
-    const trail = [`0%${offset(0)}`];
-    for (let i = 0; i < moves; i++) {
-      trail.push(`${pct(takeoff(i))}${offset(cumulative[i])}`, `${pct(land(i))}${offset(cumulative[i + 1])}`);
-    }
-    trail.push(`100%${offset(dash)}`);
-    css.push(
-      `.tr{stroke-dasharray:${dash} ${dash};${anim('tr')} ease-in-out}`,
-      `@keyframes tr{${trail.join('')}}`
-    );
-  }
-
-  // Each visited square gets a dot that lights up when the knight lands.
-  css.push(`.d{opacity:0;animation-duration:${total}ms;animation-iteration-count:infinite}`);
+  // Each landing square brightens briefly, then returns to normal.
+  css.push(`.g{opacity:0;animation-duration:${total}ms;animation-iteration-count:infinite}`);
   path.forEach((_, j) => {
-    const t = visitTime(j);
-    css.push(
-      `@keyframes d${j}{0%,${pct(t)}{opacity:0}${pct(t + 120)}{opacity:1}${pct(t + 900)},100%{opacity:.45}}`
-    );
+    const t = arrival(j);
+    css.push(`@keyframes g${j}{0%,${pct(t)}{opacity:0}${pct(t + 150)}{opacity:${theme.flashPeak}}${pct(t + FLASH_MS)},100%{opacity:0}}`);
   });
 
   css.push(`text{font:10px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;fill:${theme.text}}`);
@@ -148,7 +130,8 @@ export function generateSvg(board, path, { theme: themeName = 'dark' } = {}) {
   const width = PAD_X * 2 + board.width * PITCH - GAP;
   const gridBottom = GRID_TOP + board.height * PITCH - GAP;
   const height = gridBottom + FOOTER;
-  const contributionSquares = path.filter((c) => c.contributionCount > 0).length;
+  const visited = [...new Set(path)];
+  const contributionSquares = visited.filter((c) => c.contributionCount > 0).length;
 
   const cells = board.cells
     .map(
@@ -161,15 +144,10 @@ export function generateSvg(board, path, { theme: themeName = 'dark' } = {}) {
     .map((m) => `<text x="${PAD_X + m.x * PITCH}" y="${GRID_TOP - 10}">${m.text}</text>`)
     .join('');
 
-  const trail =
-    path.length > 1
-      ? `<path class="tr" d="M${path.map((c) => `${cx(c.x)} ${cy(c.y)}`).join('L')}" fill="none" stroke="${theme.trail}" stroke-opacity=".2" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>`
-      : '';
-
-  const dots = path
+  const flashes = path
     .map(
       (c, j) =>
-        `<circle class="d" style="animation-name:d${j}" cx="${cx(c.x)}" cy="${cy(c.y)}" r="1.6" fill="${theme.trail}"/>`
+        `<rect class="g" style="animation-name:g${j}" x="${PAD_X + c.x * PITCH}" y="${GRID_TOP + c.y * PITCH}" width="${CELL}" height="${CELL}" rx="2" fill="${theme.flash}"/>`
     )
     .join('');
 
@@ -181,8 +159,8 @@ export function generateSvg(board, path, { theme: themeName = 'dark' } = {}) {
     `</g></g></g>`;
 
   const footerY = gridBottom + 20;
-  const summary = `Knight visited ${path.length} squares · ${contributionSquares} with contributions`;
-  const description = `A chess knight touring the GitHub contribution graph with legal knight moves only. ${summary}.`;
+  const summary = `Knight visited ${visited.length} squares · ${contributionSquares} with contributions`;
+  const description = `A chess knight hopping across the GitHub contribution graph. ${summary}.`;
 
   return [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-labelledby="t d">`,
@@ -191,7 +169,8 @@ export function generateSvg(board, path, { theme: themeName = 'dark' } = {}) {
     `<style>\n${buildCss(path, theme, tl)}\n</style>`,
     months,
     `<g>${cells}</g>`,
-    `<g class="fx">${trail}${dots}${knight}</g>`,
+    `<g>${flashes}</g>`,
+    `<g class="fx">${knight}</g>`,
     `<text x="${PAD_X}" y="${footerY}">${escapeXml(`${board.totalContributions} contributions in the last year`)}</text>`,
     `<text x="${width - PAD_X}" y="${footerY}" text-anchor="end">${escapeXml(summary)}</text>`,
     `</svg>`,
