@@ -1,28 +1,30 @@
 # Hey, I'm Breno 👋
 
-### Product · Technology · AI
+**Product · Technology · AI**
 
-Data Science & AI student from Rio de Janeiro building products, automations and AI-powered solutions.
-Currently exploring Product **Management, AI Agents, Automation and Digital Products**.
+Data Science & AI student from Rio de Janeiro, building products, automations and AI-powered solutions.
 
 ---
 
-## 🛠️ My toolkit
+## 🛠️ Toolkit
 
-### Product & Business
+![Product Discovery](https://img.shields.io/badge/Product_Discovery-111827?style=flat-square)
+![AI Agents](https://img.shields.io/badge/AI_Agents-111827?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
+![Power Automate](https://img.shields.io/badge/Power_Automate-0066FF?style=flat-square)
+![APIs](https://img.shields.io/badge/APIs-111827?style=flat-square)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)
 
-`Product Discovery` `Requirements` `Business Rules` `Workflows`  
-`UX Thinking` `Product Operations` `Process Improvement` `Agile`
+---
 
-### AI & Automation
+## ♟ I like chess. Never said I was good at it.
 
-`Generative AI` `AI Agents` `Prompt Engineering`  
-`Power Automate` `Power Apps` `Workflow Automation`
+[CHESS.COM WIDGET]
 
-### Data & Technology
-
-`Python` `SQL` `Power BI` `Power Query` `Excel`  
-`APIs` `Postman` `Git` `GitHub` `SharePoint`
+---
 
 ## ♞ My Contributions, But Make It Chess
 
@@ -39,10 +41,7 @@ Currently exploring Product **Management, AI Agents, Automation and Digital Prod
 ## 🤝 Let's connect
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-brenoalcaraz.github.io-1F3B57?style=for-the-badge&logo=githubpages&logoColor=white)](https://brenoalcaraz.github.io)
-
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Breno_França_Alcaraz-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/breno-fran%C3%A7a-alcaraz-ferreira-363a85288/)
-
-[![Instagram](https://img.shields.io/badge/Instagram-@brenofrancaa-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/brenofrancaa/)
 
 [![TikTok](https://img.shields.io/badge/TikTok-@brenofrancaa-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@brenofrancaa)
 
