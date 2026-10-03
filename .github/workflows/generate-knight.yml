@@ -1,0 +1,53 @@
+name: Generate knight contributions
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *" # daily, 03:17 UTC
+  push:
+    branches: [main]
+    paths:
+      - "scripts/**"
+      - "package.json"
+      - ".github/workflows/generate-knight.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generate-knight
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - run: npm ci
+
+      - run: npm test
+
+      - name: Generate SVGs
+        run: npm run generate
+        env:
+          # KNIGHT_TOKEN (optional PAT) also counts private contributions; otherwise falls back to the built-in token.
+          GITHUB_TOKEN: ${{ secrets.KNIGHT_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_USER: ${{ github.repository_owner }}
+
+      - name: Commit if changed
+        run: |
+          git add assets
+          if git diff --cached --quiet; then
+            echo "SVGs unchanged, nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: update knight contributions animation"
+          git pull --rebase
+          git push

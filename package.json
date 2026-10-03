@@ -1,0 +1,15 @@
+{
+  "name": "brenoalcaraz-profile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Animated knight's tour over my GitHub contribution graph",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "generate": "node scripts/generate-knight.js",
+    "generate:sample": "node scripts/generate-knight.js --sample",
+    "test": "node --test"
+  }
+}

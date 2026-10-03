@@ -119,6 +119,18 @@ I'm especially excited about global teams, graduate programs, and environments w
 
 ---
 
+## ♞ Knight's Tour of My Contributions
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/knight-contributions.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/knight-contributions-light.svg">
+  <img alt="A chess knight touring my GitHub contribution graph using only legal knight moves" src="assets/knight-contributions.svg">
+</picture>
+
+<sub>A chess knight tours my real contribution graph, one legal knight move at a time. Regenerated daily by a GitHub Action.</sub>
+
+---
+
 ## 🤝 Let's connect
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-brenoalcaraz.github.io-1F3B57?style=for-the-badge&logo=githubpages&logoColor=white)](https://brenoalcaraz.github.io)
