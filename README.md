@@ -26,7 +26,7 @@ Data Science & AI student from Rio de Janeiro, building products, automations an
 
 ---
 
-## ♞ My Contributions, But Make It Chess
+## ♞ My Contributions
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/knight-contributions.svg">
