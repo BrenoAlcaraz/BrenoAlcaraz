@@ -3,72 +3,7 @@
 ### Product · Technology · AI
 
 Data Science & AI student from Rio de Janeiro building products, automations and AI-powered solutions.
-
 Currently exploring Product **Management, AI Agents, Automation and Digital Products**.
-
----
-
-## 🧩 What I like working on
-
-- Turning user and business pain points into product requirements
-- Product discovery, workflows and business rules
-- AI-powered products and intelligent automation
-- Process improvement and operational efficiency
-- Data-driven product decisions
-- APIs, integrations and internal tools
-- Working between business, product and engineering
-
-Basically, I like being somewhere between:
-
-**“We have a problem.” → “How should this work?” → “Let's build it.”**
-
----
-
-## 🚀 What I'm building
-
-### ⚖️ AI-Powered Legal SaaS
-
-I'm building an AI-powered SaaS platform for law firms from the ground up.
-
-My work spans the whole product journey:
-
-`Discovery → Requirements → Business Rules → Workflows → Build → Validation → Iteration`
-
-I'm exploring how generative AI and AI agents can reduce repetitive work and make legal information easier to process and act on.
-
-**Focus:** Product Development · AI Agents · Automation · UX · APIs
-
----
-
-### 🏋️ Nexus Fit
-
-I contribute to the evolution of a live fitness product, participating in:
-
-- Feature discussions
-- UX decisions
-- Product priorities
-- Technical implementation
-- Translating product needs into practical improvements
-
-It has been a great environment for learning how product decisions evolve beyond the initial idea.
-
----
-
-## 💼 From automation to product
-
-Before focusing more deeply on Product & Technology, I worked with process automation in corporate environments.
-
-At **MRO Logística**, I built automations and internal applications across HR and IT using Power Automate, Power Apps, Python, Microsoft 365, SharePoint and APIs.
-
-One of the projects reduced a process that previously took **weeks of manual work to just a few minutes**.
-
-I also designed an internal system to automate Microsoft license management for the IT team.
-
-Earlier, at **Along Contabilidade**, I built Python applications and automations for financial and accounting processes, including data extracted from blockchain networks.
-
-Those experiences shaped the way I think about products today:
-
-> Technology is most valuable when it solves a real problem.
 
 ---
 
@@ -88,32 +23,6 @@ Those experiences shaped the way I think about products today:
 
 `Python` `SQL` `Power BI` `Power Query` `Excel`  
 `APIs` `Postman` `Git` `GitHub` `SharePoint`
-
----
-
-## 🎓 A little more about me
-
-📚 B.Sc. in **Data Science & Artificial Intelligence at IBMEC**
-
-👨‍🏫 Former Teaching Assistant in **Structured Programming, Data Structures and Discrete Mathematics**
-
-🌎 Based in **Rio de Janeiro, Brazil**
-
-🗣️ Portuguese · English · Spanish · French
-
-🧠 Currently exploring the intersection of **Product, AI and Technology**
-
----
-
-## 🌱 What I'm looking for
-
-I'm currently interested in early-career opportunities where I can grow at the intersection of:
-
-**Product Management · Product Operations · Technology · AI · Strategy**
-
-I'm especially excited about global teams, graduate programs, and environments where I can learn fast, take ownership, and help turn ideas into products people actually use.
-
----
 
 ## ♞ My Contributions, But Make It Chess
 
