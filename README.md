@@ -2,13 +2,9 @@
 
 ### Product · Technology · AI
 
-I'm a Data Science & Artificial Intelligence student from Rio de Janeiro who enjoys turning messy problems into useful products, automations, and better workflows.
+Data Science & AI student from Rio de Janeiro building products, automations and AI-powered solutions.
 
-My background started in process automation, but somewhere along the way I realized that what I enjoy most isn't just building the solution.
-
-It's understanding **why it should exist, who needs it, how it should work, and how technology can make it better.**
-
-Today, I'm especially interested in **Product Management, Product Operations, AI, Automation, and Digital Transformation**.
+Currently exploring Product **Management, AI Agents, Automation and Digital Products**.
 
 ---
 
