@@ -164,7 +164,7 @@ export function generateSvg(board, path, { theme: themeName = 'dark' } = {}) {
 
   return [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-labelledby="t d">`,
-    `<title id="t">Knight's Tour of My Contributions</title>`,
+    `<title id="t">My Contributions, But Make It Chess</title>`,
     `<desc id="d">${escapeXml(description)}</desc>`,
     `<style>\n${buildCss(path, theme, tl)}\n</style>`,
     months,

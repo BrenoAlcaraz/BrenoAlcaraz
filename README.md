@@ -119,7 +119,7 @@ I'm especially excited about global teams, graduate programs, and environments w
 
 ---
 
-## ♞ Knight's Tour of My Contributions
+## ♞ My Contributions, But Make It Chess
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/knight-contributions.svg">
