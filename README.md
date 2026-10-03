@@ -20,12 +20,6 @@ Data Science & AI student from Rio de Janeiro, building products, automations an
 
 ---
 
-## ♟ I like chess. Never said I was good at it.
-
-<a href="https://www.chess.com/member/Bn-o-rei-do-xadrez"><img src="https://chess-readme-stats.vercel.app/api/card/Bn-o-rei-do-xadrez.svg" alt="Chess.com stats for Bn-o-rei-do-xadrez" width="420"></a>
-
----
-
 ## ♞ My Contributions
 
 <picture>
