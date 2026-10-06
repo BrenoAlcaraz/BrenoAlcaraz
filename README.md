@@ -20,7 +20,7 @@ Data Science & AI student from Rio de Janeiro, building products, automations an
 
 ---
 
-## ♞ My Contributions
+## ♞ My Contributions  <sub><i>(but make it chess)</i></sub>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/knight-contributions.svg">
@@ -32,7 +32,7 @@ Data Science & AI student from Rio de Janeiro, building products, automations an
 
 ---
 
-## 🤝 Let's connect
+## <img src="assets/handshake.svg" width="29" alt="Handshake" align="absmiddle"> Let's connect
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-brenoalcaraz.github.io-1F3B57?style=for-the-badge&logo=githubpages&logoColor=white)](https://brenoalcaraz.github.io)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Breno_França_Alcaraz-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/breno-fran%C3%A7a-alcaraz-ferreira-363a85288/)
