@@ -10,8 +10,8 @@ Data Science & AI student from Rio de Janeiro, building products, automations an
 
 ![Product Discovery](https://img.shields.io/badge/Product_Discovery-C47A44?style=flat-square&logoColor=white)
 ![AI Agents](https://img.shields.io/badge/AI_Agents-7C5CC4?style=flat-square&logoColor=white)
-![Python](https://img.shields.io/badge/Python-356A9A?style=flat-square&logo=python&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4C6F8F?style=flat-square&logoColor=white)
+![Python](https://img.shields.io/badge/Python-2F5F8F?style=flat-square&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-667482?style=flat-square&logoColor=white)
 ![Power BI](https://img.shields.io/badge/Power_BI-A38718?style=flat-square&logo=powerbi&logoColor=white)
 ![Power Automate](https://img.shields.io/badge/Power_Automate-3D6FC4?style=flat-square&logoColor=white)
 ![APIs](https://img.shields.io/badge/APIs-356B59?style=flat-square&logoColor=white)
