@@ -34,9 +34,9 @@ Data Science & AI student from Rio de Janeiro, building products, automations an
 
 ## <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f91d/512.gif" width="28" alt="Animated handshake"> Let's connect
 
-[![Visit Portfolio](https://img.shields.io/badge/Visit_Portfolio_→-brenoalcaraz.github.io-1F3B57?style=for-the-badge&logo=githubpages&logoColor=white)](https://brenoalcaraz.github.io)
+[![Portfolio](https://img.shields.io/badge/VISIT_PORTFOLIO_→-BRENOALCARAZ.GITHUB.IO-1F3B57?style=for-the-badge&labelColor=444444)](https://brenoalcaraz.github.io)
 
-[![LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn_→-Breno_França_Alcaraz-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/breno-fran%C3%A7a-alcaraz-ferreira-363a85288/)
+[![LinkedIn](https://img.shields.io/badge/CONNECT_ON_LINKEDIN_→-BRENO_FRANÇA_ALCARAZ-0A66C2?style=for-the-badge&labelColor=444444)](https://www.linkedin.com/in/breno-fran%C3%A7a-alcaraz-ferreira-363a85288/)
 
 ---
 
